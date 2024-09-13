@@ -52,6 +52,14 @@ pub enum Commands {
             help = "If set will keep the generated serverless code directories"
         )]
         no_cleanup: bool,
+
+        #[arg(
+            short,
+            long,
+            value_name = "force-rebuild",
+            help = "If set will force a rebuild of the serverless function and recreation of the unikernel"
+        )]
+        force_rebuild: bool,
     },
 }
 
