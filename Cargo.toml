@@ -1,0 +1,26 @@
+[package]
+name = "serverless-interface-cli"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.4.6", features = ["derive"] }
+hyper = { version = "1.4.1", features = ["full"] }
+hyper-util = { version = "0.1.8", features = ["full"] }
+http-body-util = { version = "0.1.2" }
+tokio = { version = "1.36.0", features = ["full"] }
+custom-logger = { git = "https://github.com/lmzuccarelli/rust-custom-logger", branch = "main", version = "0.1.4" }
+mirror-error = { git = "https://github.com/lmzuccarelli/rust-mirror-error", branch = "main", version = "0.1.0" }
+mirror-utils = { git = "https://github.com/lmzuccarelli/rust-mirror-utils", branch = "main", version = "0.3.0" }
+serverless-interface-template = { git = "https://github.com/lmzuccarelli/rust-serverless-interface-template", branch = "main", version = "0.1.1" }
+serde = "1.0.210"
+serde_derive = "1.0.210"
+serde_yaml = "0.9.34"
+
+[profile.release]
+strip = true # Strip symbols from the binary
+opt-level = "s" # Optimize for size
+lto = true # Enable link-time optimization
+codegen-units = 1 # Mazimize size reduction optimization
